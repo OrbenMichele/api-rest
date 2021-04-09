@@ -1,0 +1,616 @@
+{
+	"info": {
+		"_postman_id": "9d22d050-c516-4a29-a0f1-87d6b641c614",
+		"name": "Rest API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Insert User",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenType",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n\t\"email\": \"micheleorben@gmail.com\",\n\t\"password\": \"morben\",\n\t\"name\": \"Michele\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://us-central1-rh-challenges.cloudfunctions.net/potterApi/users",
+							"protocol": "http",
+							"host": [
+								"us-central1-rh-challenges",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"potterApi",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Insert User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\n\t\"email\": \"micheleorben@gmail.com\",\n\t\"password\": \"morben\",\n\t\"name\": \"Michele\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://us-central1-rh-challenges.cloudfunctions.net/potterApi/users",
+									"protocol": "http",
+									"host": [
+										"us-central1-rh-challenges",
+										"cloudfunctions",
+										"net"
+									],
+									"path": [
+										"potterApi",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"e2-+lsV7nwHgfQ2YZYD7/xSSB5jO/4\""
+								},
+								{
+									"key": "Function-Execution-Id",
+									"value": "h2glan719y0z"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Cloud-Trace-Context",
+									"value": "1ed6776b4845ac41e13febfa505749a5;o=1"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 06 Apr 2021 22:34:28 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Google Frontend"
+								},
+								{
+									"key": "Content-Length",
+									"value": "226"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": {\n        \"id\": \"d4210868-e431-446a-8f0e-91131c58c339\",\n        \"apiKey\": \"81440104-ba91-41b0-bb91-9d47859a7e0a\",\n        \"email\": \"micheleorben@gmail.com\",\n        \"name\": \"Michele\",\n        \"password\": \"$2b$12$cTFIwjXE30mMbco96trduuGLS17pewRGyAtxgnqIk2rOHIPLoBo02\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Persona",
+			"item": [
+				{
+					"name": "Insert Persona",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Harry Potter\",\n    \"role\": \"student\",\n    \"school\": \"Hogwarts School of Witchcraft and Wizardry\",\n    \"house\": \"1760529f-6d51-4cb1-bcb1-25087fce5bde\",\n    \"patronus\": \"stag\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{auth_url}}/persona",
+							"host": [
+								"{{auth_url}}"
+							],
+							"path": [
+								"persona"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindById Persona",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenType",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTU1OTY0OTMsInVzZXJfbmFtZSI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9ST0xFIl0sImp0aSI6Ijk1ZWQyOGI2LWNmOGEtNGEzMy1hMDkzLTgwNjA1ODMzMzZhZCIsImNsaWVudF9pZCI6InZ1ZWpzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.MBbUHx719XEe61LsibGuskT5UvzJ38U6276PP5cItz0",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{auth_url}}/persona/7552d020-2a5f-4f8a-abc2-fc2e87836f7f",
+							"host": [
+								"{{auth_url}}"
+							],
+							"path": [
+								"persona",
+								"7552d020-2a5f-4f8a-abc2-fc2e87836f7f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindAll Personas",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenType",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTU1OTY0OTMsInVzZXJfbmFtZSI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9ST0xFIl0sImp0aSI6Ijk1ZWQyOGI2LWNmOGEtNGEzMy1hMDkzLTgwNjA1ODMzMzZhZCIsImNsaWVudF9pZCI6InZ1ZWpzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.MBbUHx719XEe61LsibGuskT5UvzJ38U6276PP5cItz0",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{auth_url}}/persona",
+							"host": [
+								"{{auth_url}}"
+							],
+							"path": [
+								"persona"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Persona By house",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenType",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTU1OTY0OTMsInVzZXJfbmFtZSI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9ST0xFIl0sImp0aSI6Ijk1ZWQyOGI2LWNmOGEtNGEzMy1hMDkzLTgwNjA1ODMzMzZhZCIsImNsaWVudF9pZCI6InZ1ZWpzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.MBbUHx719XEe61LsibGuskT5UvzJ38U6276PP5cItz0",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "house",
+								"value": "1760529f-6d51-4cb1-bcb1-25087fce5bde",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{auth_url}}/persona/filter?houseId=542b28e2-9904-4008-b038-034ab312ad7e",
+							"host": [
+								"{{auth_url}}"
+							],
+							"path": [
+								"persona",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "houseId",
+									"value": "542b28e2-9904-4008-b038-034ab312ad7e"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Persona",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenType",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MTU1OTY0OTMsInVzZXJfbmFtZSI6ImFkbWluIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9ST0xFIl0sImp0aSI6Ijk1ZWQyOGI2LWNmOGEtNGEzMy1hMDkzLTgwNjA1ODMzMzZhZCIsImNsaWVudF9pZCI6InZ1ZWpzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.MBbUHx719XEe61LsibGuskT5UvzJ38U6276PP5cItz0",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{auth_url}}/persona/7552d020-2a5f-4f8a-abc2-fc2e87836f7f",
+							"host": [
+								"{{auth_url}}"
+							],
+							"path": [
+								"persona",
+								"7552d020-2a5f-4f8a-abc2-fc2e87836f7f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Persona",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Harry Potter\",\n    \"role\": \"student\",\n    \"school\": \"Hogwarts School of Witchcraft and Wizardry\",\n    \"house\": \"1760529f-6d51-4cb1-bcb1-25087fce5bde\",\n    \"patronus\": \"stag\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{auth_url}}/persona/7ade9af6-b87f-4503-9bec-31e581de9974",
+							"host": [
+								"{{auth_url}}"
+							],
+							"path": [
+								"persona",
+								"7ade9af6-b87f-4503-9bec-31e581de9974"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Token",
+			"item": [
+				{
+					"name": "Get Token",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "UyiGM9yj",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "vuejs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client",
+									"value": "vuejs",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "^R%66xq#PZgn",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{auth_url}}/oauth/token",
+							"host": [
+								"{{auth_url}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "UyiGM9yj",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "vuejs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{auth_url}}/oauth/token",
+							"host": [
+								"{{auth_url}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Revoke Token",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "tokenType",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{auth_url}}/tokens/revoke",
+							"host": [
+								"{{auth_url}}"
+							],
+							"path": [
+								"tokens",
+								"revoke"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "House",
+			"item": [
+				{
+					"name": "Get All Houses",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "apikey",
+								"value": "81440104-ba91-41b0-bb91-9d47859a7e0a",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://us-central1-rh-challenges.cloudfunctions.net/potterApi/houses",
+							"protocol": "http",
+							"host": [
+								"us-central1-rh-challenges",
+								"cloudfunctions",
+								"net"
+							],
+							"path": [
+								"potterApi",
+								"houses"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "auth_url",
+			"value": "http://localhost:9000"
+		}
+	]
+}
