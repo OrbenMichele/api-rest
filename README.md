@@ -17,5 +17,5 @@ Foi um prazer criar essa aplicação, obrigada por utilizar. Ficarei feliz em re
 
 
 
-Aplicação desenvolvida em Java 8, String Boot, docker, postgres, oauth2 by Michele Orben - Abril,2020 - Florianópolis/Brasil
+Aplicação desenvolvida em Java 8, String Boot, docker, postgres, oauth2 by Michele Orben - Abril,2021 - Florianópolis/Brasil
 
