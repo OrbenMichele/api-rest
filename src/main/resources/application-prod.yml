@@ -1,0 +1,12 @@
+server:
+  port: 9050
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+authentication:
+  security:
+    origem-permitida: https://front-end.com
+    enable-https: true

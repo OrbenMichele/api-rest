@@ -1,0 +1,43 @@
+server:
+  port: 9000
+
+config:
+  oauth2:
+    client:
+      id: vuejs
+      secret: UyiGM9yj
+
+spring:
+  application:
+    name: authentication
+  datasource:
+    driverClassName: org.postgresql.Driver
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+  jpa:
+    databse: POSTGRESQL
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    hibernate:
+      ddl-auto: none
+authentication:
+  security:
+    origem-permitida: http://localhost:8080
+    enable-https: false
+
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: "health,info"
+
+potter:
+  url: http://us-central1-rh-challenges.cloudfunctions.net/potterApi
+  authentication:
+    token: 81440104-ba91-41b0-bb91-9d47859a7e0a
