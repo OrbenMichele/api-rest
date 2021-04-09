@@ -17,4 +17,10 @@ public class HousesRequestModel {
     @JsonProperty("houses")
     private List<HouseRequestModel> houseRequestModel;
 
+    @Override
+    public String toString() {
+        return "HousesRequestModel{" +
+                "houseRequestModel=" + houseRequestModel.toString() +
+                '}';
+    }
 }

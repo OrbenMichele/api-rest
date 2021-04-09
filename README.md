@@ -10,8 +10,10 @@ Instruções de utilização da aplicação
 6. É necessário solicitar o token através de usuário e senha. Fique tranquilo, este usuário é criado automaticamente junto com os scripts do banco que são executados quando carregar a aplicação pela primeira vez.
 7. Execute a request Get Token que está dentro da pasta token.
 8. Escolha uma request na pasta Persona ou House e infore o token recebido na aba Authorization.
+9. Com a aplicação UP consulte a documentação da API em: http://localhost:9000/swagger-ui.html#/
 9. Divirta-se com a inclusão dos seus personagens favoritos ou crie novos personagens a partir da sua imaginação :)
-10. Foi um prazer criar essa aplicação, obrigada por utilizar. Ficarei feliz em receber feedbacks ;)
+
+Foi um prazer criar essa aplicação, obrigada por utilizar. Ficarei feliz em receber feedbacks ;)
 
 
 

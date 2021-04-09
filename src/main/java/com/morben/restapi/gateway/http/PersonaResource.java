@@ -29,7 +29,7 @@ public class PersonaResource {
     @ApiOperation(value = "Inserir novo personagem",
             notes = "Retorna personagem criado")
     @PostMapping
-    public Persona insert(@Valid @RequestBody PersonaRequestModel personaToInsert) throws Exception {
+    public Persona insert(@RequestBody @Valid PersonaRequestModel personaToInsert) throws Exception {
         return personaService.insert(personaToInsert);
     }
 
@@ -109,7 +109,7 @@ public class PersonaResource {
     }
 
     @PutMapping("/{id}")
-    public Persona update(@PathVariable UUID id, @Valid @RequestBody PersonaRequestModel personaToUpdate) {
+    public Persona update(@PathVariable UUID id, @RequestBody @Valid PersonaRequestModel personaToUpdate) {
         return personaService.update(personaToUpdate, id);
     }
 

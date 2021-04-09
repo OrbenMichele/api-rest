@@ -16,6 +16,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
@@ -76,26 +77,28 @@ public class PersonaServiceImpl implements PersonaService {
             personaRepository.deleteById(id);
         }catch (Exception e){
             throw new RestApiServiceException(ErrorMessages.NO_RECORD_ID_FOUND.getErrorMessage());
-        }    }
+        }
+    }
 
     @Override
-    public Persona update(PersonaRequestModel personaToUpdate, UUID id) {
+    public Persona update(@Valid PersonaRequestModel personaToUpdate, UUID id) {
 
-        HouseLog houseLog = new HouseLog();
+        HouseLog houseLog = null;
         try {
             Persona personaSaved = this.findById(id);
             Persona persona = modelMapper.map(personaToUpdate, Persona.class);
             if (!personaSaved.getHouse().equals(personaToUpdate.getHouse())) {
+                houseLog = new HouseLog();
                 //validar se novo id_house é válido, throws exception caso não encontree id informado
                this.validateHouseId(houseLog, persona);
             }
 
             BeanUtils.copyProperties(persona, personaSaved, "id");
-            return personaRepository.save(personaSaved);
+            return this.save(personaSaved);
         }catch (Exception e){
-            throw e;
+            throw new RestApiServiceException(e.getMessage());
         }finally {
-            houseLogService.save(houseLog);
+            if (houseLog != null) houseLogService.save(houseLog);
         }
     }
 
@@ -115,9 +118,8 @@ public class PersonaServiceImpl implements PersonaService {
         } catch (Exception e){
             throw new RestApiServiceException(e.getMessage());
         }
-//todo implementar toString
-        houseLog.setResponse(housesRequestModel.toString());
 
+        houseLog.setResponse(housesRequestModel.toString());
         houseLog.setRequestedId(personaToValidate.getHouse());
         houseLog.setDataHora(new java.sql.Timestamp(System.currentTimeMillis()));
 
@@ -130,7 +132,7 @@ public class PersonaServiceImpl implements PersonaService {
                 throw new RestApiServiceException(ErrorMessages.NO_HOUSE_ID_FOUND.getErrorMessage());
             }
         } catch (Exception e) {
-            throw new RestApiServiceException(ErrorMessages.MISSING_REQUIRED_FIELDS.getErrorMessage());
+            throw new RestApiServiceException(e.getMessage());
         }
     }
 
